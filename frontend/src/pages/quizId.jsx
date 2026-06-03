@@ -7,8 +7,6 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
-import { Progress } from "@/components/ui/progress"
-import { Link } from "react-router"
 
 const questions = [
     {
@@ -39,12 +37,12 @@ export default function QuizId() {
                 {questions.map((val,idx)=>
                     <Card key={idx}>
                         <CardHeader>
-                            <CardTitle>{key}. {val.question}</CardTitle>
+                            <CardTitle>{idx+1}. {val.question}</CardTitle>
                         </CardHeader>
-                        <CardContent>
+                        <CardContent className="space-y-4">
                         {
                             val.options.map((option,numbering)=>
-                            <div className="rounded-xl p-3 text-sm" key={numbering}>{numbering}. {option}</div>
+                            <div className="rounded-xl p-3 text-sm bg-muted cursor-pointer" key={numbering}>{numbering+1}. {option}</div>
                             )
                         }
                         </CardContent>

@@ -64,12 +64,12 @@ export default function Courses() {
                                 <Progress value={val.progress} />
                                 <div className="flex items-center gap-2">
                                     <Button asChild className="mt-4 flex-1">
-                                        <Link to={`/course/1`}>
+                                        <Link to={`/course/${1}`}>
                                             Continue
                                         </Link>
                                     </Button>
                                     <Button asChild className="mt-4 flex-1">
-                                        <Link to={`/quiz/1`}>
+                                        <Link to={`/quiz/${1}`}>
                                             Quiz {"->"}
                                         </Link>
                                     </Button>

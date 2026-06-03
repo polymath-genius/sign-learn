@@ -8,6 +8,7 @@ import SidebarLayout from './components/sidebar-layout.jsx';
 import { TooltipProvider } from "@/components/ui/tooltip"
 import Courses from './pages/courses.jsx';
 import CourseId from './pages/courseId.jsx';
+import QuizId from './pages/quizId.jsx';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
