@@ -2,16 +2,27 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.jsx'
-import { BrowserRouter,Routes,Route } from "react-router";
-import Translation from './pages/Translation.jsx';
+import { BrowserRouter, Routes, Route } from "react-router";
+import Translation from './pages/translation.jsx';
+import SidebarLayout from './components/sidebar-layout.jsx';
+import { TooltipProvider } from "@/components/ui/tooltip"
+import Courses from './pages/courses.jsx';
+import CourseId from './pages/courseId.jsx';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<App />} />
-        <Route path="/translation" element={<Translation />} />
-      </Routes>
-    </BrowserRouter>
+    <TooltipProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<App />} />
+          <Route element={<SidebarLayout />} >
+            <Route path="/translation" element={<Translation />} />
+            <Route path="/courses" element={<Courses />} />
+            <Route path="/course/:courseId" element={<CourseId />} />
+            <Route path="/quiz/:quizId" element={<QuizId />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </TooltipProvider>
   </StrictMode>,
 )

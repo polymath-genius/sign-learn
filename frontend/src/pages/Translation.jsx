@@ -13,6 +13,7 @@ import {
     ComboboxList,
 } from "@/components/ui/combobox"
 import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
 
 const language = ["English", "Hindi", "Bengali"]
 
@@ -21,14 +22,14 @@ export default function Translation() {
         <div className="flex flex-col p-4 min-h-screen">
             <h1 className="text-2xl font-bold">Real-Time Sign Language Translation</h1>
             <p className="text-sm text-muted-foreground">Live sign detection and translation to English and Indian languages</p>
-            <div>
+            <div className="flex flex-col gap-4 mt-4">
                 <div className="grid grid-cols-2 gap-4">
                     <Card>
                         <CardHeader>
                             <CardTitle>Camera</CardTitle>
                         </CardHeader>
                         <CardContent>
-                            <div className="rounded-2xl border bg-black"></div>
+                            <div className="flex justify-center h-90 rounded-2xl border bg-black text-white items-center">Live Camera</div>
                         </CardContent>
                     </Card>
                 </div>
@@ -38,7 +39,7 @@ export default function Translation() {
                             <CardTitle>Translation</CardTitle>
                         </CardHeader>
                         <CardContent className="space-y-4">
-                            <div className="rounded-2xl border bg-black">This is the translation.</div>
+                            <Input className="pt-4 pb-25"/>
                             <div className="flex gap-2 items-center">
                                 <Button>Speak</Button>
                                 <Combobox items={language}>
