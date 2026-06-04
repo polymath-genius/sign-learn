@@ -11,35 +11,41 @@ import {
 import { Progress } from "@/components/ui/progress"
 import { Link } from "react-router"
 import {
-  Select,
-  SelectContent,
-  SelectGroup,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
+    Select,
+    SelectContent,
+    SelectGroup,
+    SelectItem,
+    SelectTrigger,
+    SelectValue,
 } from "@/components/ui/select"
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 
-const signs = [
+const course = [
     {
-        title:"Hello",
-        category:"Word"
+        topic: "India's Freedom Struggle",
+        subject: "History",
+        progress: 80
     },
     {
-        title:"A",
-        category:"Alphabet"
+        topic: "Newton's Laws of Motion",
+        subject: "Science",
+        progress: 80
     },
     {
-        title:"Family",
-        category:"Word"
+        topic: "Profit and Loss",
+        subject: "Maths",
+        progress: 80
     },
     {
-        title:2,
-        category:"Number"
+        topic: "The Brain",
+        subject: "Science",
+        progress: 80
     },
     {
-        title:"W",
-        category:"Alphabet"
-    },
+        topic: "Unitary Method",
+        subject: "Maths",
+        progress: 80
+    }
 ]
 
 export default function Profile() {
@@ -48,34 +54,41 @@ export default function Profile() {
             <h1 className="text-2xl font-bold">User Profile</h1>
             <p className="text-sm text-muted-foreground">Profile information</p>
             <div className="flex flex-col gap-4 mt-4">
-                <div className="flex items-center gap-2">
-                    <div className="flex items-center -space-x-4 flex-1">
-                        <Search size={15} />
-                        <Input placeholder="Search Signs" className="pl-6 py-6" />
-                    </div>
-                    <Select value="all">
-                        <SelectTrigger>
-                            <SelectValue />
-                        </SelectTrigger>
-                        <SelectContent className="top-10">
-                            <SelectGroup>
-                                <SelectItem value="all">All</SelectItem>
-                                <SelectItem value="alphabet">Alphabet</SelectItem>
-                                <SelectItem value="number">Number</SelectItem>
-                                <SelectItem value="word">Word</SelectItem>
-                            </SelectGroup>
-                        </SelectContent>
-                    </Select>
-                </div>
-                <div className="grid grid-cols-3 gap-4">
-                    {signs.map((val, idx) =>
+                <Card>
+                    <CardContent>
+                        <div className="flex gap-4 items-center">
+                            <Avatar className="h-20 w-20">
+                                <AvatarImage src="abc" />
+                                <AvatarFallback className="text-4xl font-bold bg-green-400 text-white">JD</AvatarFallback>
+                            </Avatar>
+                            <div className="flex flex-col gap-2">
+                                <h5 className="text-2xl font-bold">John Doe</h5>
+                                <p className="text-sm text-muted-foreground">johndoe22@gmail.com</p>
+                            </div>
+                        </div>
+                    </CardContent>
+                </Card>
+                <div className="grid grid-cols-4 gap-4">
+                    {course.map((val, idx) =>
                         <Card key={idx}>
                             <CardHeader>
-                                <img src="abc" alt="Sign Image" className="text-center bg-muted py-15 rounded-xl"/>
+                                <CardTitle className="text-lg">{val.topic}</CardTitle>
+                                <p className="text-xs text-muted-foreground">{val.subject}</p>
                             </CardHeader>
                             <CardContent>
-                                <h5 className="font-semibold">{val.title}</h5>
-                                <p className="text-xs text-muted-foreground">{val.category}</p>
+                                <Progress value={val.progress} />
+                                <div className="flex items-center gap-2">
+                                    <Button asChild className="mt-4 flex-1">
+                                        <Link to={`/course/${1}`}>
+                                            Continue
+                                        </Link>
+                                    </Button>
+                                    <Button asChild className="mt-4 flex-1">
+                                        <Link to={`/quiz/${1}`}>
+                                            Quiz {"->"}
+                                        </Link>
+                                    </Button>
+                                </div>
                             </CardContent>
                         </Card>)
                     }

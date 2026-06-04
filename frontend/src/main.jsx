@@ -10,6 +10,7 @@ import Courses from './pages/courses.jsx';
 import CourseId from './pages/courseId.jsx';
 import QuizId from './pages/quizId.jsx';
 import Dictionary from './pages/dictionary.jsx';
+import Profile from './pages/profile.jsx';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -23,6 +24,7 @@ createRoot(document.getElementById('root')).render(
             <Route path="/course/:courseId" element={<CourseId />} />
             <Route path="/quiz/:quizId" element={<QuizId />} />
             <Route path="/dictionary" element={<Dictionary />} />
+            <Route path="/profile" element={<Profile />} />
           </Route>
         </Routes>
       </BrowserRouter>
