@@ -9,6 +9,7 @@ import { TooltipProvider } from "@/components/ui/tooltip"
 import Courses from './pages/courses.jsx';
 import CourseId from './pages/courseId.jsx';
 import QuizId from './pages/quizId.jsx';
+import Dictionary from './pages/dictionary.jsx';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -21,6 +22,7 @@ createRoot(document.getElementById('root')).render(
             <Route path="/courses" element={<Courses />} />
             <Route path="/course/:courseId" element={<CourseId />} />
             <Route path="/quiz/:quizId" element={<QuizId />} />
+            <Route path="/dictionary" element={<Dictionary />} />
           </Route>
         </Routes>
       </BrowserRouter>
